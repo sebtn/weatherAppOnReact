@@ -1,6 +1,7 @@
 import React, {Component}  from 'react'
 import PropTypes from 'prop-types'
 
+'use strict'
 export default class Nav extends Component { 
 	constructor(props) {
 		super(props) 

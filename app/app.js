@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import PropTypes from 'prop-types'
+
 import Main from '././components/Main'
 
-
+'use strict'
 const { Route, Router, IndexRoute, hashHistory } =  require('react-router')
 
 ReactDOM.render(
@@ -11,7 +11,7 @@ ReactDOM.render(
 			<Route  path="/" component={Main}>
 
 			</Route>
-	</Router> ,
+	</Router>,
 	document.getElementById('root')
 )
 
