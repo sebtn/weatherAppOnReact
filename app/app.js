@@ -7,6 +7,7 @@ import Main from '././components/Main'
 import Weather from '././components/Weather'
 import About from '././components/About'
 import Examples from '././components/Examples'
+import './app.scss'
 
 'use strict'
 

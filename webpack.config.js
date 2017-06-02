@@ -2,9 +2,9 @@ let path = require('path')
 let webpack = require('webpack')
 
 module.exports = {
-	entry: {
-		path: ['./app/app.js']
-	},
+	entry: [
+		'./app/app.js',
+	],
 	output: {
 		path: path.resolve( __dirname, 'public'),
 		filename: 'bundle.js',
@@ -30,6 +30,10 @@ module.exports = {
 				query: {
 					presets: ["babel-preset-es2015", "react", "babel-preset-stage-0" ]
 				}
+			},
+			{
+				test: /\.scss$/,
+				loader: 'style-loader!css-loader!sass-loader'
 			}
 		]
 	},
