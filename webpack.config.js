@@ -6,7 +6,7 @@ module.exports = {
 		path: ['./app/app.js']
 	},
 	output: {
-		path:path.resolve( __dirname, 'public'),
+		path: path.resolve( __dirname, 'public'),
 		filename: 'bundle.js',
 	},
 	resolve: {
@@ -32,5 +32,6 @@ module.exports = {
 				}
 			}
 		]
-	}
+	},
+	devtool: 'cheap-module-eval-source-map'
 }

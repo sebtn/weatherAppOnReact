@@ -37,7 +37,6 @@ export default class Weather extends Component {
 			this.setState({isLoading: false})		
 		})
 	}
-
 /*----------------------------------------------------------*/
 /* Can be called as a js object directly 
 	{this.renderMessage} */
