@@ -13132,7 +13132,7 @@ var WeatherMesaage = function (_Component) {
 					null,
 					'It is ',
 					temp,
-					' in ',
+					' \xB0C in ',
 					location,
 					' '
 				)
@@ -31541,15 +31541,9 @@ module.exports = g;
 
 /***/ }),
 /* 280 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-var openWeatherMapUrl = exports.openWeatherMapUrl = 'http://api.openweathermap.org/data/2.5/weather?appid=5031814f4f9d58afaf872a5a18b51516';
+throw new Error("Module build failed: Error: ENOENT: no such file or directory, open '/home/seb/Sites/WeatherApp/apiConfig.js'\n    at Error (native)");
 
 /***/ })
 /******/ ]);
