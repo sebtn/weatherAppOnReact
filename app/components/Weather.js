@@ -1,7 +1,7 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import WeatherForm from './WeatherForm'
 import WeatherMessage from './WeatherMessage'
-import {getTemp} from '../api/OpenWeatherMap'
+import { getTemp } from '../api/OpenWeatherMap'
 
 'use strict'
 export default class Weather extends Component {
@@ -27,7 +27,7 @@ export default class Weather extends Component {
 	component */
 	handleSearch = (location) => {
 		// Note setState in different stages
-		this.setState({isLoading: true})
+		this.setState({ isLoading: true })
 		/*let that = this can be avoided
 		 by arrow function use of implicit binding*/
 		getTemp(location).then( (temp) => {

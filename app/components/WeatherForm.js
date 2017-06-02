@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 
 'use strict'
 export default class WeatherForm extends Component {
@@ -15,7 +15,7 @@ onFormSubmit = (event) => {
 			this.refs.location.value = ' '
 			/* onSearch will be fired up to the parent,
 			will be LH term on the component call 
-			made by the parent 
+			made by the parent Weather
 			*/
 			this.props.onSearch(location)
 		} 
