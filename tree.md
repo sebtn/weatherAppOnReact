@@ -2,8 +2,11 @@
 ├── app
 │   ├── app.js
 │   └── components
+│       ├── About.js
+│       ├── Examples.js
 │       ├── Main.js
-│       └── Nav.js
+│       ├── Nav.js
+│       └── Weather.js
 ├── package.json
 ├── public
 │   ├── bundle.js
@@ -12,4 +15,4 @@
 ├── tree.md
 └── webpack.config.js
 
-3 directories, 9 files
+3 directories, 12 files

@@ -11,7 +11,7 @@ export default class Main extends Component {
 		return(
 			<div>
 				<Nav />
-				<h2>See me?</h2>
+				<h2>Defined in Main.js</h2>
 				{this.props.children}
 			</div>
 		)

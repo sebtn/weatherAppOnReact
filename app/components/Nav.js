@@ -1,5 +1,5 @@
 import React, {Component}  from 'react'
-import { Link } from 'react-router'
+import { Link, IndexLink } from 'react-router'
 
 'use strict'
 export default class Nav extends Component { 
@@ -11,8 +11,9 @@ export default class Nav extends Component {
 		return(
 			<div>
 				<h2>Navabr Goes to hollywodd in here!</h2>
-				<Link to='/'>Get Weather</Link>
-				<Link to='/about'>About</Link>
+				<IndexLink to='/' activeClassName="active">Get Weather</IndexLink>
+				<IndexLink to='/about' activeClassName="active">About</IndexLink>
+				<IndexLink to='/examples' activeClassName="active">Examples</IndexLink>
 			</div>
 		) 
 	}

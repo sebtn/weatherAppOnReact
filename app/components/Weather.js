@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import WeatherForm from './WeatherForm'
+import WeatherMessage from './WeatherMessage'
 
 'use strict'
 export default class Weather extends Component {
@@ -9,7 +11,11 @@ export default class Weather extends Component {
 
 	render() {
 		return(
-			<h3>Weather componnet</h3>
+			<div>
+				<h3>GET WEATHER</h3>
+				<WeatherForm></WeatherForm>
+				<WeatherMessage></WeatherMessage>
+			</div>
 		)
 	}
 } 

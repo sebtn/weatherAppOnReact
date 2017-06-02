@@ -14,7 +14,10 @@ module.exports = {
 			Main: 'app/components/Main.js',
 			Nav: 'app/components/Nav.js',
 			Weather: 'app/components/Weather.js',
-			About: 'app/components/About.js'
+			WeatherForm: 'app/components/WeatherForm.js',
+			WeatherMessage: 'app/components/WeatherMessage.js',
+			About: 'app/components/About.js',
+			Examples: 'app/components/Examples.js'
 		}
 	},
 	module: {
