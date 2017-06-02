@@ -12933,16 +12933,27 @@ var Weather = function (_Component) {
 
 		var _this = _possibleConstructorReturn(this, (Weather.__proto__ || Object.getPrototypeOf(Weather)).call(this, props));
 
-		_this.handleSearch = function (location) {
-			console.log('location ', location);
+		_this.initialState = function () {
+			return {
+				location: 'miami',
+				temp: 88
+			};
 		};
 
-		_this.state = {};
+		_this.handleSearch = function (location) {
+			_this.setState({ location: location, temp: 25 });
+		};
+
+		_this.state = _this.initialState();
 		return _this;
 	}
 
 	/*----------------------------------------------------------*/
-	/*The handleSearch will be RHT*/
+
+
+	/*----------------------------------------------------------*/
+	/*The handleSearch will be RHT in the weatherForm
+ component */
 
 
 	_createClass(Weather, [{
@@ -12951,6 +12962,10 @@ var Weather = function (_Component) {
 
 		/*----------------------------------------------------------*/
 		value: function render() {
+			var _state = this.state,
+			    location = _state.location,
+			    temp = _state.temp;
+
 			return _react2.default.createElement(
 				'div',
 				null,
@@ -12960,7 +12975,7 @@ var Weather = function (_Component) {
 					'GET WEATHER'
 				),
 				_react2.default.createElement(_WeatherForm2.default, { onSearch: this.handleSearch }),
-				_react2.default.createElement(_WeatherMessage2.default, null)
+				_react2.default.createElement(_WeatherMessage2.default, { temp: temp, location: location })
 			);
 		}
 	}]);
@@ -13092,13 +13107,21 @@ var WeatherMesaage = function (_Component) {
 	_createClass(WeatherMesaage, [{
 		key: 'render',
 		value: function render() {
+			var _props = this.props,
+			    temp = _props.temp,
+			    location = _props.location;
+
 			return _react2.default.createElement(
 				'div',
 				null,
 				_react2.default.createElement(
 					'h4',
 					null,
-					'Weather in: Static is not cool'
+					'It is ',
+					temp,
+					' in ',
+					location,
+					' '
 				)
 			);
 		}

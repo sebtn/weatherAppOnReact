@@ -8,9 +8,10 @@ export default class WeatherMesaage extends Component {
 	}
 
 	render() {
+		let {temp, location} = this.props
 		return(
 			<div>
-				<h4>Weather in: Static is not cool</h4>
+				<h4>It is { temp } in { location } </h4>
 			</div>
 		)
 	}
