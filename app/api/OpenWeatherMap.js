@@ -2,7 +2,6 @@ import axios from 'axios'
 import { openWeatherMapUrl } from '../../apiConfig.js'
 
 'use strict'
-
 export const getTemp = (location) => {
 	let encodedLocation = encodeURIComponent(location)
 	let requestUrl = `${openWeatherMapUrl}&q=${encodedLocation}&units=metric`

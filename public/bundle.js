@@ -12937,28 +12937,47 @@ var Weather = function (_Component) {
 
 		_this.initialState = function () {
 			return {
-				location: 'Here',
-				temp: null
+				isLoading: false,
+				location: ' ',
+				temp: ' '
 			};
 		};
 
 		_this.handleSearch = function (location) {
+			// Note setState in different stages
+			_this.setState({ isLoading: true }
 			/*let that = this can be avoided
     by arrow function use of implicit binding*/
-			(0, _OpenWeatherMap.getTemp)(location).then(function (temp) {
-				_this.setState({
-					location: location, temp: temp
-				});
+			);(0, _OpenWeatherMap.getTemp)(location).then(function (temp) {
+				_this.setState({ location: location, temp: temp, isLoading: false });
 			}, function (errorMessage) {
-				alert('error ', errorMessage);
+				alert('City not found ', errorMessage);
+				_this.setState({ isLoading: false });
 			});
 		};
 
-		_this.state = {};
+		_this.renderMessage = function () {
+			var _this$state = _this.state,
+			    isLoading = _this$state.isLoading,
+			    location = _this$state.location,
+			    temp = _this$state.temp;
+
+			if (isLoading) {
+				return _react2.default.createElement(
+					'h3',
+					null,
+					'Fetching...'
+				);
+			} else if (temp && location) {
+				return _react2.default.createElement(_WeatherMessage2.default, { temp: temp, location: location });
+			}
+		};
+
+		_this.state = _this.initialState
 
 		/*---------Bindings--------*/
 
-		return _this;
+		();return _this;
 	}
 
 	/*----------------------------------------------------------*/
@@ -12969,16 +12988,17 @@ var Weather = function (_Component) {
  component */
 
 
+	/*----------------------------------------------------------*/
+	/* Can be called as a js object directly 
+ 	{this.renderMessage} */
+
+
 	_createClass(Weather, [{
 		key: 'render',
 
 
 		/*----------------------------------------------------------*/
 		value: function render() {
-			var _state = this.state,
-			    location = _state.location,
-			    temp = _state.temp;
-
 			return _react2.default.createElement(
 				'div',
 				null,
@@ -12988,7 +13008,7 @@ var Weather = function (_Component) {
 					'GET WEATHER'
 				),
 				_react2.default.createElement(_WeatherForm2.default, { onSearch: this.handleSearch }),
-				_react2.default.createElement(_WeatherMessage2.default, { temp: temp, location: location })
+				this.renderMessage()
 			);
 		}
 	}]);
@@ -27947,7 +27967,6 @@ var _apiConfig = __webpack_require__(280);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 'use strict';
-
 var getTemp = exports.getTemp = function getTemp(location) {
 	var encodedLocation = encodeURIComponent(location);
 	var requestUrl = _apiConfig.openWeatherMapUrl + '&q=' + encodedLocation + '&units=metric';
@@ -31541,9 +31560,15 @@ module.exports = g;
 
 /***/ }),
 /* 280 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-throw new Error("Module build failed: Error: ENOENT: no such file or directory, open '/home/seb/Sites/WeatherApp/apiConfig.js'\n    at Error (native)");
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+var openWeatherMapUrl = exports.openWeatherMapUrl = 'http://api.openweathermap.org/data/2.5/weather?appid=5031814f4f9d58afaf872a5a18b51516';
 
 /***/ })
 /******/ ]);
