@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import PropTypes from 'prop-types'
 import Nav from './Nav'
 
 'use strict'
@@ -13,6 +12,7 @@ export default class Main extends Component {
 			<div>
 				<Nav />
 				<h2>See me?</h2>
+				{this.props.children}
 			</div>
 		)
 	}

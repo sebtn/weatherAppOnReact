@@ -12,7 +12,9 @@ module.exports = {
 	resolve: {
 		alias: {
 			Main: 'app/components/Main.js',
-			Nav: 'app/components/Nav.js'
+			Nav: 'app/components/Nav.js',
+			Weather: 'app/components/Weather.js',
+			About: 'app/components/About.js'
 		}
 	},
 	module: {

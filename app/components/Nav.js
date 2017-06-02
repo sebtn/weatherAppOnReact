@@ -1,5 +1,5 @@
 import React, {Component}  from 'react'
-import PropTypes from 'prop-types'
+import { Link } from 'react-router'
 
 'use strict'
 export default class Nav extends Component { 
@@ -9,7 +9,11 @@ export default class Nav extends Component {
 	}
 	render() {
 		return(
-			<h2>Navabr Goes to hollywodd in here!</h2>
+			<div>
+				<h2>Navabr Goes to hollywodd in here!</h2>
+				<Link to='/'>Get Weather</Link>
+				<Link to='/about'>About</Link>
+			</div>
 		) 
 	}
 }
