@@ -1,27 +1,40 @@
 import React, {Component} from 'react'
 import WeatherForm from './WeatherForm'
 import WeatherMessage from './WeatherMessage'
+import {getTemp} from '../api/OpenWeatherMap'
 
 'use strict'
 export default class Weather extends Component {
 	constructor(props) {
 		super(props) 
-		this.state = this.initialState()
+		this.state = {}
+
+		/*---------Bindings--------*/
+
 	}
 
 /*----------------------------------------------------------*/
 	initialState = () => {
 		return {
-			location: 'miami',
-			temp: 88
+			location: 'Here',
+			temp: null
 		} 
 	}
 
 /*----------------------------------------------------------*/
 	/*The handleSearch will be RHT in the weatherForm
 	component */
-	handleSearch =  (location) => {
-		this.setState({ location: location, temp: 25 })
+	handleSearch = (location) => {
+		/*let that = this can be avoided
+		 by arrow function use of implicit binding*/
+		getTemp(location).then( (temp) => {
+			this.setState({ 
+				location: location, temp: temp 
+			})
+		}, (errorMessage) => {
+			alert('error ', errorMessage)			
+		})
+
 	}
 
 /*----------------------------------------------------------*/
