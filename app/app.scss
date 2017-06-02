@@ -1,1 +1,26 @@
 @import "../node_modules/bootstrap/scss/bootstrap";
+
+.nav-container {
+	min-height: 75px;
+	background: #F5F5F5;
+	margin-bottom: 125px; 
+	font-size: 20px;
+	padding-right: 90px;
+
+	& a.disabled, a.disabled:hover {
+		font-size: 30px;
+		border-right: 1px solid lightgray;
+		color:lightgray;
+	}
+	& li.title {
+		padding-top: 15px;
+		border-right: 1px solid lightgray;
+	}
+	& form {
+		margin-left:20px;
+	}
+	& form button {
+		margin-left: 15px;
+		outline: none;
+	}
+}

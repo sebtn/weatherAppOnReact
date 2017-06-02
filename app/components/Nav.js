@@ -7,13 +7,35 @@ export default class Nav extends Component {
 		super(props) 
 		this.state = {}
 	}
+
+/*----------------------------------------------------------*/
+onSearch = (event) => {
+	event.preventDefault()
+	alert('Not connected')
+}
+
+/*----------------------------------------------------------*/
 	render() {
 		return(
-			<div>
-				<h2>Navabr Goes to hollywodd in here!</h2>
-				<IndexLink to='/' activeClassName="active">Get Weather</IndexLink>
-				<IndexLink to='/about' activeClassName="active">About</IndexLink>
-				<IndexLink to='/examples' activeClassName="active">Examples</IndexLink>
+			<div className="nav-container">
+				<ul className="nav nav-fill">
+					<li className="nav-item">
+						<IndexLink className="nav-link disabled">Weather App Built on React.js</IndexLink>	
+					</li>
+					<li className="nav-item title">
+						<IndexLink className="nav-link active" to='/' >Get Weather</IndexLink>
+					</li>
+					<li className="nav-item title">
+						<IndexLink className="nav-link active" to='/about' >About</IndexLink>
+					</li>
+					<li className="nav-item title">
+						<IndexLink className="nav-link active" to='/examples' >Examples</IndexLink>
+					</li>			
+					<form className="form-inline" onSubmit={this.onSearch}>
+						<input className="form-control search-bar" type="text" placeholder="Search" />
+						<button className="btn btn-primary" type="submit">Get Weather</button>
+					</form>			
+				</ul>	
 			</div>
 		) 
 	}
