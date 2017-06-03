@@ -20,7 +20,6 @@ export default class Weather extends Component {
 		} 
 	}
 
-
 /*----------------------------------------------------------*/
 	/*The handleSearch will be RHT in the weatherForm
 	component */
@@ -61,7 +60,7 @@ export default class Weather extends Component {
 	render() {
 		return(
 			<div className="weather-container">
-				<h3 className="text-center">GET WEATHER</h3>
+				<h1 className="text-center">Get The Weather</h1>
 				<WeatherForm onSearch={ this.handleSearch } />
 				{this.renderMessage()}
 				{this.renderError()}

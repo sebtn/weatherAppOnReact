@@ -38,11 +38,30 @@
 }
 
 .weather-form {
+	& .form-control {
+		outline: none;
+		-webkit-box-shadow: 0 4px 6px -6px #222;
+		-moz-box-shadow: 0 4px 6px -6px #222;
+		box-shadow: 0 4px 6px -6px #222;
+		border: 0;
+		border-bottom: 1px solid #F5F5F5;
+		min-height: 50px;
+		font-size: 25px;
+	}
+	& .form-control:focus {
+		outline: none;
+		-webkit-box-shadow: 0 4px 6px -6px #222;
+		-moz-box-shadow: 0 4px 6px -6px #222;
+		box-shadow: 0 4px 6px -6px #222;
+		border: 0;
+		border-bottom: 1px solid #F5F5F5;
 
+	}
 	& form button  {
 		font-weight:bold;
 		border-radius: 0;
 		width: 100%;
+		border-width: 2px;
 	}
 }
 
@@ -62,5 +81,16 @@
 		list-style-type: none;
 		margin:15px 0 0 0;
 		padding:0;
+	}
+}
+
+.weather-container {
+	& h1 {
+		margin: 15px 15px 55px 15px;
+	}
+}
+.message-container {
+	& h3 {
+		margin-top: 15px;
 	}
 }

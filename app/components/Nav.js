@@ -32,7 +32,7 @@ onSearch = (event) => {
 						<IndexLink className="nav-link active" to='/examples' >Examples</IndexLink>
 					</li>			
 					<form className="form-inline" onSubmit={this.onSearch}>
-						<input className="form-control search-bar" type="text" placeholder="Search" />
+						<input className="form-control search-bar" type="text" placeholder="Search Weather By City" />
 						<button className="btn btn-primary" type="submit">Get Weather</button>
 					</form>			
 				</nav>	
