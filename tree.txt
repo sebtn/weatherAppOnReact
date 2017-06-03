@@ -6,6 +6,7 @@
 │   ├── app.scss
 │   └── components
 │       ├── About.js
+│       ├── ErrorBox.js
 │       ├── Examples.js
 │       ├── Main.js
 │       ├── Nav.js
@@ -20,4 +21,4 @@
 ├── tree.txt
 └── webpack.config.js
 
-4 directories, 16 files
+4 directories, 17 files
