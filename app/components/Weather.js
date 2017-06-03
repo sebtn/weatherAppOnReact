@@ -28,12 +28,12 @@ export default class Weather extends Component {
 		// Note setState in different stages
 		this.setState({ isLoading: true, errorMessage: undefined})
 		/*let that = this can be avoided
-		 by arrow function use of implicit binding*/
+		 by arrow function's use of implicit binding*/
 		getTemp(location).then( (temp) => {
 			this.setState({ location: location, temp: temp, isLoading: false })
+		/*Error handling callback*/
 		}, (e) => {
 			this.setState({isLoading: false, errorMessage: e.message})		
-			// alert('City not found ', errorMessage)	
 		})
 	}
 
@@ -45,17 +45,16 @@ export default class Weather extends Component {
 		if (isLoading) {
 			return <h3>Fetching...</h3>
 		} else if (temp && location) {
-			return <WeatherMessage  temp={temp} location={location}  />
+			return <WeatherMessage temp={temp} location={location}  />
 		} 
 	} 
 
 /*----------------------------------------------------------*/
 	renderError = () => {
 		let {isLoading, location, temp, errorMessage } = this.state
-		if(typeof errorMessage === 'string')
-			return(
-				<ErrorBox></ErrorBox>
-			)
+		/*Error went from undefined to string */
+		if(typeof errorMessage === 'string') 
+			return( <ErrorBox /> )
 	}
 
 /*----------------------------------------------------------*/
