@@ -61,15 +61,16 @@ export default class Weather extends Component {
 	}
 
 /*----------------------------------------------------------*/
-/* Clean the browser when using examples */
-componentDidMount = () => {
-	let location = this.props.location.query.location
-	if (location && location.length > 0) {
-		this.handleSearch(location)
-		/* Re-route to the homepage */
-		window.location.hash = '#/'
+	/* Clean the browser when using examples, 
+		pressing a link triggers re-render*/
+	componentDidMount = () => {
+		let location = this.props.location.query.location
+		if (location && location.length > 0) {
+			this.handleSearch(location)
+			/* Re-route to the homepage */
+			window.location.hash = '#/'
+		}
 	}
-}
 
 /*----------------------------------------------------------*/
 	/* Router is updating the props of weather, 

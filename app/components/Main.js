@@ -13,20 +13,13 @@ export default class Main extends Component {
 		return(
 			<div>
 				<Nav />
-
-				<div className="row">
-
-					<div className="col-sm-3 col-md-6 col-lg-4">
+					<div className="row">
+						<div className="col-sm-3 col-md-6 col-lg-4"></div>
+						<div className="col-sm-6 col-md-6 col-lg-4 text-center">
+							{this.props.children}
+						</div>				
+						<div className="col-sm-3 col-md-6 col-lg-4"></div>
 					</div>
-
-					<div className="col-sm-6 col-md-6 col-lg-4 text-center">
-					{this.props.children}
-					</div>
-					
-					<div className="col-sm-3 col-md-6 col-lg-4">
-					</div>
-
-				</div>
 			</div>
 		)
 	}

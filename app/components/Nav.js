@@ -9,16 +9,18 @@ export default class Nav extends Component {
 	}
 
 /*----------------------------------------------------------*/
-onSearch = (event) => {
-	event.preventDefault()
-	let location = this.refs.searchBar.value
-	let encodedLocation = encodeURIComponent(location)
-	if(location.length > 0) {
-		this.refs.searchBar.value = ' '
-		/* Re-route to the encoded location */
-		window.location.hash = '#/?location=' + encodedLocation
+	onSearch = (event) => {
+		event.preventDefault()
+		let location = this.refs.searchBar.value
+		let encodedLocation = encodeURIComponent(location)
+		if(location.length > 0) {
+			this.refs.searchBar.value = ' '
+			/* Re-route to the encoded location by adding it 
+			to and updating the GET request. Fired up, gets
+			handled in the parent by componentDidMount*/
+			window.location.hash = '#/?location=' + encodedLocation
+		}
 	}
-}
 
 /*----------------------------------------------------------*/
 	render() {
