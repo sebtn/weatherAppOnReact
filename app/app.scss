@@ -1,5 +1,37 @@
 @import "../node_modules/bootstrap/scss/bootstrap";
 
+/* Create placeholder mixin */
+@mixin placeholder($color, $size:"") {
+  &::-webkit-input-placeholder {
+    color: $color;
+    @if $size != "" {
+      font-size: $size;
+    }
+  }
+  &:-moz-placeholder {
+    color: $color;
+    @if $size != "" {
+      font-size: $size;
+    }
+  }
+  &::-moz-placeholder {
+    color: $color;
+    @if $size != "" {
+      font-size: $size;
+    }
+  }
+  &:-ms-input-placeholder {
+    color: $color;
+    @if $size != "" {
+      font-size: $size;
+    }
+  }
+}
+/* Use placeholder mixin (the size parameter is optional) */
+[placeholder] {
+  @include placeholder(lightgray);
+}
+
 .nav-container {
 	min-height: 25px;
 	background: #F5F5F5;
@@ -26,8 +58,22 @@
     display: block;
     text-align: center;
 	}
-	& form {
+	& .form-control {
 		margin-left:20px;
+		outline: none;
+		-webkit-box-shadow: 0 4px 6px -6px #222;
+		-moz-box-shadow: 0 4px 6px -6px #222;
+		box-shadow: 0 4px 6px -6px #222;
+		border: 0;
+		border-bottom: 1px solid #F5F5F5;
+		& focus {
+			outline: none;
+			-webkit-box-shadow: 0 4px 6px -6px #222;
+			-moz-box-shadow: 0 4px 6px -6px #222;
+			box-shadow: 0 4px 6px -6px #222;
+			border: 0;
+			border-bottom: 1px solid #F5F5F5;
+		}
 	}
 	& form button {
 		margin-left: 15px;
