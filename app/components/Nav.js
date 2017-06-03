@@ -17,8 +17,8 @@ onSearch = (event) => {
 /*----------------------------------------------------------*/
 	render() {
 		return(
-			<div className="nav-container">
-				<ul className="nav nav-fill">
+			<div className="nav-container" id="navContainer">
+				<nav className="nav justify-content-center">
 					<li className="nav-item">
 						<IndexLink className="nav-link disabled">Weather App Built on React.js</IndexLink>	
 					</li>
@@ -35,7 +35,7 @@ onSearch = (event) => {
 						<input className="form-control search-bar" type="text" placeholder="Search" />
 						<button className="btn btn-primary" type="submit">Get Weather</button>
 					</form>			
-				</ul>	
+				</nav>	
 			</div>
 		) 
 	}
