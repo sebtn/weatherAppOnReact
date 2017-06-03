@@ -27,7 +27,8 @@
     }
   }
 }
-/* Use placeholder mixin (the size parameter is optional) */
+/* Use placeholder mixin (the size 
+parameter is optional) */
 [placeholder] {
   @include placeholder(lightgray);
 }
@@ -93,15 +94,14 @@
 		border-bottom: 1px solid #F5F5F5;
 		min-height: 50px;
 		font-size: 25px;
-	}
-	& .form-control:focus {
-		outline: none;
-		-webkit-box-shadow: 0 4px 6px -6px #222;
-		-moz-box-shadow: 0 4px 6px -6px #222;
-		box-shadow: 0 4px 6px -6px #222;
-		border: 0;
-		border-bottom: 1px solid #F5F5F5;
-
+		& focus {
+			outline: none;
+			-webkit-box-shadow: 0 4px 6px -6px #222;
+			-moz-box-shadow: 0 4px 6px -6px #222;
+			box-shadow: 0 4px 6px -6px #222;
+			border: 0;
+			border-bottom: 1px solid #F5F5F5;
+		}
 	}
 	& form button  {
 		font-weight:bold;
@@ -133,10 +133,13 @@
 .weather-container {
 	& h1 {
 		margin: 15px 15px 55px 15px;
+		font-size: 60px;
+		color: #555;
 	}
 }
 .message-container {
 	& h3 {
 		margin-top: 15px;
+		color: #555;
 	}
 }

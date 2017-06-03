@@ -11,7 +11,13 @@ export default class Nav extends Component {
 /*----------------------------------------------------------*/
 onSearch = (event) => {
 	event.preventDefault()
-	alert('Not connected')
+	let location = this.refs.searchBar.value
+	let encodedLocation = encodeURIComponent(location)
+	if(location.length > 0) {
+		this.refs.searchBar.value = ' '
+		/* Re-route to the encoded location */
+		window.location.hash = '#/?location=' + encodedLocation
+	}
 }
 
 /*----------------------------------------------------------*/
@@ -32,7 +38,7 @@ onSearch = (event) => {
 						<IndexLink className="nav-link active" to='/examples' >Examples</IndexLink>
 					</li>			
 					<form className="form-inline" onSubmit={this.onSearch}>
-						<input className="form-control search-bar" type="text" placeholder="Search Weather By City" />
+						<input ref="searchBar" className="form-control" type="text" placeholder="Search Weather By City" />
 						<button className="btn btn-primary" type="submit">Get Weather</button>
 					</form>			
 				</nav>	

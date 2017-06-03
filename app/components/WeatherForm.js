@@ -9,14 +9,13 @@ export default class WeatherForm extends Component {
 
 /*----------------------------------------------------------*/
 onFormSubmit = (event) => {
-		let location = this.refs.location.value
 		event.preventDefault()
+		let location = this.refs.location.value
 		if(location.length > 0) {
 			this.refs.location.value = ' '
 			/* onSearch will be fired up to the parent,
 			will be LH term on the component call 
-			made by the parent Weather
-			*/
+			made by the parent Weather */
 			this.props.onSearch(location)
 		} 
 	}

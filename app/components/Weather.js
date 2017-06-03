@@ -21,16 +21,20 @@ export default class Weather extends Component {
 	}
 
 /*----------------------------------------------------------*/
-	/*The handleSearch will be RHT in the weatherForm
+	/* The handleSearch will be RHT in the weatherForm
 	component */
 	handleSearch = (location) => {
-		// Note setState in different stages
-		this.setState({ isLoading: true, errorMessage: undefined})
-		/*let that = this can be avoided
-		 by arrow function's use of implicit binding*/
+		/* Note setState in different stages */
+		this.setState({ 
+			isLoading: true, 
+			errorMessage: undefined, 
+			location: undefined, 
+			temp: undefined })
+		/* let that = this can be avoided
+		 by arrow function's use of implicit binding */
 		getTemp(location).then( (temp) => {
 			this.setState({ location: location, temp: temp, isLoading: false })
-		/*Error handling callback*/
+		/* Error handling callback */
 		}, (e) => {
 			this.setState({isLoading: false, errorMessage: e.message})		
 		})
@@ -38,7 +42,7 @@ export default class Weather extends Component {
 
 /*----------------------------------------------------------*/
 /* Can be called as a js object directly 
-	{this.renderMessage} */
+	in render() section  like {this.renderMessage} */
 	renderMessage = () => {
 		let {isLoading, location, temp } = this.state
 		if (isLoading) {
@@ -57,10 +61,33 @@ export default class Weather extends Component {
 	}
 
 /*----------------------------------------------------------*/
+/* Clean the browser when using examples */
+componentDidMount = () => {
+	let location = this.props.location.query.location
+	if (location && location.length > 0) {
+		this.handleSearch(location)
+		/* Re-route to the homepage */
+		window.location.hash = '#/'
+	}
+}
+
+/*----------------------------------------------------------*/
+	/* Router is updating the props of weather, 
+	parent updates children */
+	componentWillReceiveProps = (newProps) => {
+		let location = newProps.location.query.location
+		if (location && location.length > 0) {
+			this.handleSearch(location)
+			/* Re-route to the homepage */
+			window.location.hash = '#/'
+		}
+	}
+
+/*----------------------------------------------------------*/
 	render() {
 		return(
 			<div className="weather-container">
-				<h1 className="text-center">Get The Weather</h1>
+				<h1 className="text-center">Get Weather</h1>
 				<WeatherForm onSearch={ this.handleSearch } />
 				{this.renderMessage()}
 				{this.renderError()}
