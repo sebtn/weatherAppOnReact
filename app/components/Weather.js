@@ -16,9 +16,9 @@ export default class Weather extends Component {
 /*----------------------------------------------------------*/
 	initialState = () => {
 		return {
-			isLoading: false,
-			location: ' ',
-			temp: ' '
+				// isLoading: false,
+				// location: ' ',
+				// temp: ' ',
 		} 
 	}
 
@@ -37,6 +37,14 @@ export default class Weather extends Component {
 			this.setState({isLoading: false})		
 		})
 	}
+
+/*----------------------------------------------------------*/
+	// handleEmptyLocation = (location) => {
+	// 	if(!location) {
+	// 		return <EmptyMesaage></EmptyMesaage>
+	// 	}
+	// }	
+
 /*----------------------------------------------------------*/
 /* Can be called as a js object directly 
 	{this.renderMessage} */
@@ -45,17 +53,16 @@ export default class Weather extends Component {
 		if (isLoading) {
 			return <h3>Fetching...</h3>
 		} else if (temp && location) {
-			return <WeatherMessage temp={ temp } location={ location } />
-		}
+			return <WeatherMessage  temp={temp} location={location}  />
+		} 
 	} 
-
 /*----------------------------------------------------------*/
 	render() {
 		return(
-			<div>
-				<h3>GET WEATHER</h3>
-				<WeatherForm onSearch={ this.handleSearch }></WeatherForm>
-				{ this.renderMessage() }
+			<div className="weather-container">
+				<h3 className="text-center">GET WEATHER</h3>
+				<WeatherForm onSearch={ this.handleSearch } />
+				{this.renderMessage()}
 			</div>
 		)
 	}
