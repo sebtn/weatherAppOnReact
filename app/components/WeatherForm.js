@@ -26,8 +26,8 @@ onFormSubmit = (event) => {
 		return(
 			<div>
 				<form onSubmit={this.onFormSubmit}>
-					<input ref="location" type="text" placeholder="Enter city name"></input><br/>
-					<input type="submit" value="Get Weather"></input>
+					<input className="form-control" ref="location" type="text" placeholder="Enter city name"></input><br/>
+					<button className="btn btn-primary block" type="submit"> Get Weather </button>
 				</form>
 			</div>
 		)

@@ -11,6 +11,7 @@ export default class WeatherMesaage extends Component {
 		let {temp, location} = this.props
 		return(
 			<div>
+				<br />
 				<h4>It is { temp } °C in { location } </h4>
 			</div>
 		)
