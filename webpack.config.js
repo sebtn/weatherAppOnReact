@@ -19,6 +19,7 @@ module.exports = {
 			About: 'app/components/About.js',
 			Examples: 'app/components/Examples.js',
 			OpenWeatherMap: 'app/api/OpenWeatherMap.js',
+			ErrorBox: 'app/components/ErrorBox.js',
 		}
 	},
 	module: {

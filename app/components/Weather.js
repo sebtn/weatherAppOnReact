@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import WeatherForm from './WeatherForm'
 import WeatherMessage from './WeatherMessage'
+import ErrorBox from './ErrorBox'
 import { getTemp } from '../api/OpenWeatherMap'
 
 'use strict'
@@ -8,42 +9,33 @@ export default class Weather extends Component {
 	constructor(props) {
 		super(props) 
 		this.state = this.initialState()
-
-		/*---------Bindings--------*/
-
 	}
 
 /*----------------------------------------------------------*/
 	initialState = () => {
 		return {
-				// isLoading: false,
+				isLoading: false,
 				// location: ' ',
 				// temp: ' ',
 		} 
 	}
+
 
 /*----------------------------------------------------------*/
 	/*The handleSearch will be RHT in the weatherForm
 	component */
 	handleSearch = (location) => {
 		// Note setState in different stages
-		this.setState({ isLoading: true })
+		this.setState({ isLoading: true, errorMessage: undefined})
 		/*let that = this can be avoided
 		 by arrow function use of implicit binding*/
 		getTemp(location).then( (temp) => {
 			this.setState({ location: location, temp: temp, isLoading: false })
-		}, (errorMessage) => {
-			alert('City not found ', errorMessage)	
-			this.setState({isLoading: false})		
+		}, (e) => {
+			this.setState({isLoading: false, errorMessage: e.message})		
+			// alert('City not found ', errorMessage)	
 		})
 	}
-
-/*----------------------------------------------------------*/
-	// handleEmptyLocation = (location) => {
-	// 	if(!location) {
-	// 		return <EmptyMesaage></EmptyMesaage>
-	// 	}
-	// }	
 
 /*----------------------------------------------------------*/
 /* Can be called as a js object directly 
@@ -56,6 +48,16 @@ export default class Weather extends Component {
 			return <WeatherMessage  temp={temp} location={location}  />
 		} 
 	} 
+
+/*----------------------------------------------------------*/
+	renderError = () => {
+		let {isLoading, location, temp, errorMessage } = this.state
+		if(typeof errorMessage === 'string')
+			return(
+				<ErrorBox></ErrorBox>
+			)
+	}
+
 /*----------------------------------------------------------*/
 	render() {
 		return(
@@ -63,6 +65,7 @@ export default class Weather extends Component {
 				<h3 className="text-center">GET WEATHER</h3>
 				<WeatherForm onSearch={ this.handleSearch } />
 				{this.renderMessage()}
+				{this.renderError()}
 			</div>
 		)
 	}
